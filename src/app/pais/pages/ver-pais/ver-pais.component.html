@@ -1,0 +1,38 @@
+<div class="animate__animated animate__fadeIn">
+
+    <div *ngIf="!pais; else PaisLoaded" class="alert alert-info">
+        Loading
+    </div>
+    <ng-template #PaisLoaded>
+        <div class="row">
+            <div class="col-12">
+                <h1> Pais: <small> {{pais.name.common}} </small>
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <h3>Bandera</h3>
+                <img [src]="pais.flags.png" alt="pais.flags.alt" class="img-thumbnail">
+            </div>
+            <div class="col-3">
+                <h3>Escudo</h3>
+                <img [src]="pais.coatOfArms.svg" alt="pais.flags.alt" class="escucho-size ">
+            </div>
+            <div class="col-5">
+                <h3>Informacion</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>Capital: </strong>{{pais.capital[0]}}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Población: </strong>{{pais.population | number}}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Región: </strong>{{pais.region}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </ng-template>
+</div>
